@@ -1,7 +1,6 @@
 import React from "react";
 import "../Css/style.css";
 import Card from "./card";
-import Navbar from "./Navbar";
 import { useEffect, useState } from "react";
 import Fuse from "fuse.js";
 import { RiArrowDropDownFill } from "react-icons/ri";
@@ -23,7 +22,6 @@ const Courses = () => {
   const [count, setCount] = useState<number>(0);
   const [selectedItems, setSelectedItems] = useState<ICourse[]>([]);
 
-  console.log(setSelectedItems.length, "length");
   const searchItem = (query: string) => {
     const fuse = new Fuse(courses, {
       shouldSort: true,
@@ -82,8 +80,8 @@ const Courses = () => {
         >
           <div
             style={{
-              fontSize: "24px",
-              color: "blue",
+              fontSize: "25px",
+              color: "#a435f0",
               width: "10%",
             }}
           >
