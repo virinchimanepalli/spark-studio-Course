@@ -12,6 +12,25 @@
   justify-content: center;
   height: 100%;
 }
+
+.tags {
+  display: "flex";
+  flex-wrap: "wrap";
+  width: "100%";
+  margin-top: "7%";
+  box-sizing: "border-box";
+}
+
+.img-card {
+  object-fit: "cover";
+  width: "100%";
+}
+
+.paragraph {
+  text-align: "justify";
+  font-size: "12px";
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -24,18 +43,33 @@
 }
 .card {
   background-color: #fff;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0.7em;
   overflow: hidden;
-  width: 300px;
+  min-width: 300px;
   min-height: 375px;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover,
+.card:focus {
+  box-shadow: 0px 4px 20px 2px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
 }
 
-.card:hover {
-  width: 305px;
-  min-height: 385px;
+.card-text {
+  /* color: var(--darkblue); */
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  text-align: justify;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover .card:focus {
+  transform: scale(1.05);
+  /* width: 305px;
+  min-height: 385px; */
   box-shadow: 0px 4px 20px 2px rgba(0, 0, 0, 0.35);
 }
 
@@ -48,8 +82,8 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding: 20px;
-  min-height: 250px;
+  padding: 7px 20px 10px 20px;
+  min-height: 245px;
 }
 .tag {
   background-color: #ccc;
@@ -114,8 +148,8 @@ input::-webkit-search-cancel-button {
 }
 input[type="search"] {
   padding: 9px 10px 9px 32px;
-  width: 90px;
-  background: #ededed
+  width: 200px;
+  background: #fff
     url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
     9px center;
   border: solid 1px #ccc;
@@ -129,13 +163,90 @@ input[type="search"] {
   transition: all 0.4s;
 }
 input[type="search"]:focus {
-  width: 150px;
   font-family: "Open Sans", sans-serif;
-  background-color: #fff;
   border-color: "blue";
   -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
   -moz-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
   box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+}
+
+.udlite-badge-bestseller {
+  background-color: #eceb98;
+  color: #3d3c0a;
+  border-radius: 25px;
+}
+
+.udlite-badge {
+  display: inline-block;
+  width: 28%;
+  margin-left: 20px;
+  margin-bottom: 5%;
+  padding: 0.4rem 0.8rem;
+  white-space: nowrap;
+}
+
+.udlite-heading-xs {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02rem;
+  font-size: 0.8rem;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  width: 100px;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  font-family: "Open Sans", sans-serif;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 3px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.udlite-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  width: 82%;
+  height: 35px;
+  padding: 0 1.2rem;
+  justify-content: center;
+  -webkit-user-select: none;
+  user-select: none;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+
+.udlite-btn-brand {
+  background-color: #a435f0;
+}
+
+.udlite-text-color {
+  color: #fff;
+}
+
+.udlite-btn-brand:hover {
+  background-color: #8710d8;
 }
 
 @media (max-width: 940px) {
@@ -143,4 +254,106 @@ input[type="search"]:focus {
     grid-template-columns: 1fr;
     justify-items: center;
   }
+}
+
+.dropbtn {
+  background-color: rgb(240, 240, 240);
+  color: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-left: 17px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-top: 3px;
+  background-color: #fff;
+  min-width: 215px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content div {
+  color: black;
+  padding: 12px 5px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content div:hover {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.icon-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  color: #333333;
+  background: #f3fbfb;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+}
+
+.titlename {
+  font-size: "24px";
+  color: "blue";
+  width: "10%";
+}
+
+.nav_bar {
+  padding: "1.2% 1.8% 1.8% 1.8%";
+  background-color: "#fff";
+  justify-content: "flex-start";
+  display: "flex";
+  color: "white";
+  font-family: "Nunito";
+  font-weight: "bold";
+  font-size: 14;
+  height: "75px";
+  box-shadow: "0px 0px 7px 0px #888888";
+}
+
+.icon-button:hover {
+  cursor: pointer;
+}
+
+.icon-button:active {
+  background: #cccccc;
+}
+
+.icon-button__badge {
+  position: absolute;
+  top: -6px;
+  right: -7px;
+  width: 20px;
+  height: 20px;
+  background: red;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }

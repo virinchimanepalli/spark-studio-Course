@@ -4,12 +4,18 @@ import "../Css/style.css";
 import Img from "./image.jpg";
 import { ICourse } from "./courses";
 
-const Card = ({ course }: { course: ICourse }) => {
+const Card = ({
+  course,
+  onSelectCourse,
+}: {
+  course: ICourse;
+  onSelectCourse: (val: ICourse) => void;
+}) => {
   return (
     <>
       <div className="card">
         <div className="card-header">
-          <img src={Img} alt="" style={{ objectFit: "cover", width: "100%" }} />
+          <img src={Img} alt="" className="img-card" />
         </div>
         <div className="card-body">
           <h4>{course.course_name}</h4>
@@ -29,7 +35,7 @@ const Card = ({ course }: { course: ICourse }) => {
               display: "flex",
               flexWrap: "wrap",
               width: "100%",
-              marginTop: "5%",
+              marginTop: "7%",
               boxSizing: "border-box",
             }}
           >
@@ -38,6 +44,16 @@ const Card = ({ course }: { course: ICourse }) => {
             })}
           </div>
         </div>
+
+        <button
+          className="udlite-btn udlite-btn-brand udlite-text-color"
+          onClick={() => {
+            onSelectCourse(course);
+          }}
+        >
+          {" "}
+          Add to Cart
+        </button>
       </div>
     </>
   );
