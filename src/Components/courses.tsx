@@ -5,16 +5,7 @@ import { useEffect, useState } from "react";
 import Fuse from "fuse.js";
 import { RiArrowDropDownFill } from "react-icons/ri";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-
-const API = "https://60311c91081a010017546ce1.mockapi.io/api/courses";
-
-export interface ICourse {
-  class_requirements: string[];
-  course_name: string;
-  details: string;
-  hours_of_class_per_month: number;
-  skills_required: string[];
-}
+import { API, ICourse } from "./utils";
 
 const Courses = () => {
   const [courses, setCourses] = useState<ICourse[]>([]);
@@ -143,17 +134,12 @@ const Courses = () => {
                     (item) => item.course_name === selectedItem.course_name
                   );
                   if (isPresent.length) {
-                    const removedFromCard = selectedItems.filter(
-                      (item) => item.course_name !== selectedItem.course_name
-                    );
-                    console.log(removedFromCard);
                     setSelectedItems((_item) =>
                       _item.filter(
                         (item) => item.course_name !== selectedItem.course_name
                       )
                     );
                   } else {
-                    console.log([...selectedItems, selectedItem], "code");
                     setSelectedItems((item) => [...item, selectedItem]);
                   }
                 }}

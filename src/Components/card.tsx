@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "../Css/style.css";
 import Img from "./image.jpg";
-import { ICourse } from "./courses";
+import { ICourse } from "./utils";
 
 const Card = ({
   course,
